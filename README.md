@@ -1,4 +1,5 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/37cb7f1477fc4bf584ce7580a70cd6d9)](https://www.codacy.com/manual/BuinovskyD/topjava?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BuinovskyD/topjava&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/BuinovskyD/topjava.svg?branch=master)](https://travis-ci.org/BuinovskyD/topjava)
 
 Java Enterprise Online Project 
 ===============================
