@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import ru.javawebinar.topjava.model.Meal;
 import ru.javawebinar.topjava.util.exception.NotFoundException;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -46,6 +47,7 @@ public class MealServiceTest {
     }
 
     @Test
+    @Transactional
     public void create() throws Exception {
         Meal created = service.create(getNew(), USER_ID);
         int newId = created.id();
@@ -56,6 +58,7 @@ public class MealServiceTest {
     }
 
     @Test
+    @Transactional
     public void get() throws Exception {
         Meal actual = service.get(ADMIN_MEAL_ID, ADMIN_ID);
         MEAL_MATCHER.assertMatch(actual, ADMIN_MEAL1);
@@ -72,6 +75,7 @@ public class MealServiceTest {
     }
 
     @Test
+//    @Transactional
     public void update() throws Exception {
         Meal updated = getUpdated();
         service.update(updated, USER_ID);
@@ -84,11 +88,13 @@ public class MealServiceTest {
     }
 
     @Test
+    @Transactional
     public void getAll() throws Exception {
         MEAL_MATCHER.assertMatch(service.getAll(USER_ID), MEALS);
     }
 
     @Test
+    @Transactional
     public void getBetweenInclusive() throws Exception {
         MEAL_MATCHER.assertMatch(service.getBetweenInclusive(
                 LocalDate.of(2020, Month.JANUARY, 30),
@@ -97,6 +103,7 @@ public class MealServiceTest {
     }
 
     @Test
+    @Transactional
     public void getBetweenWithNullDates() throws Exception {
         MEAL_MATCHER.assertMatch(service.getBetweenInclusive(null, null, USER_ID), MEALS);
     }
